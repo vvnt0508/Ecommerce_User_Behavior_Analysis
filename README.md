@@ -1,6 +1,6 @@
 ## [SQL] Ecommerce User Behavior Analysis
 
-### 1. Introduction: Analyzed e-commerce data to uncover patterns through data cleaning and extraction to address business questions.
+### 1. Introduction: Analyzed e-commerce data to identify patterns through data cleaning and extraction, addressing key business questions.
 - This project utilizes SQL on [Google BigQuery](https://cloud.google.com/bigquery/docs/introduction) platform to extract important informations.
 - Why? [Google BigQuery Public Datasets](https://cloud.google.com/bigquery/?utm_source=google&utm_medium=cpc&utm_campaign=japac-VN-all-en-dr-BKWS-all-all-trial-EXA-dr-1605216&utm_content=text-ad-none-none-DEV_c-CRE_658171082826-ADGP_Hybrid+%7C+BKWS+-+BRO+%7C+Txt+-Data+Analytics-BigQuery-big+query-main-KWID_43700081106765487-kwd-35927591586&userloc_9208070-network_g&utm_term=KW_big+query&gad_source=1&gclid=Cj0KCQiA4fi7BhC5ARIsAEV1YiZiQMgikH8ALUJUgZa8GtwebyKj7voccMDJVta19CbI64gT-bMQVQAaAnWPEALw_wcB&gclsrc=aw.ds&hl=en) are free, large datasets provided by Google, covering various fields like finance, healthcare, science, society, and technology. Base on a public dataset (ga_sessions_2017), this project focuses on analyzing e-commerce data to understand customer behavior and improve business strategies.
 
