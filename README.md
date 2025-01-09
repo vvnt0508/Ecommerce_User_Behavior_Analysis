@@ -6,13 +6,24 @@
 
 ### This project will answer various questions, such as:
 **Query 01**: Calculate total visit, pageview, transaction for Jan, Feb and March 2017 (order by month).
-- SQL code:
+- SQL code
   
 ![q1](https://i.imgur.com/hrJ7REW.png)
 
-3. **Query 02**: Bounce rate per traffic source in July 2017.
+- Result
+
+![rs](https://i.imgur.com/AKp2d3z.png)
+
+**Query 02**: Bounce rate per traffic source in July 2017.
 - In this query we will use Bounce_rate = num_bounce/total_visit (order by total_visit DESC)
 - and we need to note that bounce session is the session that user does not raise any click after landing on the website
+- SQL code
+
+![q2](https://i.imgur.com/1ljKIhx.png)
+
+- Result
+
+![rs](https://i.imgur.com/QtKC9tO.png)
 3. **Query 03**: Revenue by traffic source by week, by month in June 2017.
 - In this query, we will devide productRevenue by 1000000 to shorten the result
 - Separate month and week data then union all and use the condition "product.productRevenue is not null" to calculate correctly
