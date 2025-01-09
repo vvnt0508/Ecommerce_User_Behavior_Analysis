@@ -34,7 +34,8 @@
 
 - Result
 
-![rs](https://i.imgur.com/YGVVpJm.pn)
+![rs](https://i.imgur.com/39tjTFu.png)
+
 4. **Query 04**: Average number of pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017.
 - We will calculate Avg pageview = total pageview / number unique user
 - Also notice that purchaser: totals.transactions >=1; productRevenue is not null while non-purchaser: totals.transactions IS NULL;  product.productRevenue is null
