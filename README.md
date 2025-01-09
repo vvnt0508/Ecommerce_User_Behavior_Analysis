@@ -15,7 +15,7 @@
 ![rs](https://i.imgur.com/AKp2d3z.png)
 
 **Query 02**: Bounce rate per traffic source in July 2017.
-- In this query we will use Bounce_rate = num_bounce/total_visit and note that bounce session is the session that user does not raise any click after landing on the website
+- Bounce session is the session that user does not raise any click after landing on the website
 - SQL code
 
 ![q2](https://i.imgur.com/2Sjh3Hx.png)
@@ -25,8 +25,6 @@
 ![rs](https://i.imgur.com/QtKC9tO.png)
 
 **Query 03**: Revenue by traffic source by week, by month in June 2017.
-- In this query, we will devide productRevenue by 1000000 to shorten the result
-- Separate month and week data then union all and use the condition "product.productRevenue is not null" to calculate correctly
 - SQL code
 
 ![q3](https://i.imgur.com/O94nUmb.png)
@@ -37,7 +35,7 @@
 
 **Query 04**: Average number of pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017.
 - We will calculate Avg pageview = total pageview / number unique user
-- Also notice that purchaser: totals.transactions >=1; productRevenue is not null while non-purchaser: totals.transactions IS NULL;  product.productRevenue is null
+- purchaser: totals.transactions >=1; productRevenue is not null; non-purchaser: totals.transactions IS NULL.
 
 - SQL code
 
@@ -57,7 +55,7 @@
 ![rs](https://i.imgur.com/6QROTHn.png)
 
 **Query 06**: Average amount of money spent per session. Only include purchaser data in July 2017.
-- We need to notice that per visit is different to per visitor
+- Per visit is different to per visitor
 - SQL code
 
 ![q6](https://i.imgur.com/ZAkMUIO.png)
