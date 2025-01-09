@@ -4,7 +4,7 @@
 - This project utilizes SQL on [Google BigQuery](https://cloud.google.com/bigquery/docs/introduction) platform to extract important informations.
 - Why? [Google BigQuery Public Datasets](https://cloud.google.com/bigquery/?utm_source=google&utm_medium=cpc&utm_campaign=japac-VN-all-en-dr-BKWS-all-all-trial-EXA-dr-1605216&utm_content=text-ad-none-none-DEV_c-CRE_658171082826-ADGP_Hybrid+%7C+BKWS+-+BRO+%7C+Txt+-Data+Analytics-BigQuery-big+query-main-KWID_43700081106765487-kwd-35927591586&userloc_9208070-network_g&utm_term=KW_big+query&gad_source=1&gclid=Cj0KCQiA4fi7BhC5ARIsAEV1YiZiQMgikH8ALUJUgZa8GtwebyKj7voccMDJVta19CbI64gT-bMQVQAaAnWPEALw_wcB&gclsrc=aw.ds&hl=en) are free, large datasets provided by Google, covering various fields like finance, healthcare, science, society, and technology. Base on a public dataset (ga_sessions_2017), this project focuses on analyzing e-commerce data to understand customer behavior and improve business strategies.
 
-### This project will answer various questions, such as:
+### 2. This project will answer various questions, such as:
 **Query 01**: Calculate total visit, pageview, transaction for Jan, Feb and March 2017 (order by month).
 - SQL code
   
@@ -24,9 +24,17 @@
 - Result
 
 ![rs](https://i.imgur.com/QtKC9tO.png)
-3. **Query 03**: Revenue by traffic source by week, by month in June 2017.
+
+**Query 03**: Revenue by traffic source by week, by month in June 2017.
 - In this query, we will devide productRevenue by 1000000 to shorten the result
 - Separate month and week data then union all and use the condition "product.productRevenue is not null" to calculate correctly
+- SQL code
+
+![q3](https://i.imgur.com/fxxHdU4.png)
+
+- Result
+
+![rs](https://i.imgur.com/YGVVpJm.png)
 4. **Query 04**: Average number of pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017.
 - We will calculate Avg pageview = total pageview / number unique user
 - Also notice that purchaser: totals.transactions >=1; productRevenue is not null while non-purchaser: totals.transactions IS NULL;  product.productRevenue is null
