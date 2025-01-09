@@ -1,10 +1,14 @@
-## Ecommerce_User_Behavior_Analysis
-### Please see the coding file attached
-### *Overview: Analyzed e-commerce data to uncover patterns through data cleaning and extraction to address business questions.*
-#### Base on a Google Analytics dataset (ga_sessions_2017), this project focuses on analyzing e-commerce data to understand customer behavior and improve business strategies. It uses SQL to extract important information such as customer visits, transactions, and product views. The goal is to track customer interactions, identify patterns in purchases, and measure key metrics like bounce rates and revenue. By analyzing this data, it can helps businesses improve their marketing, sales, and customer retention strategies.
-#### This project will answer various questions, such as:
-1. **Query 01**: Calculate total visit, pageview, transaction for Jan, Feb and March 2017 (order by month).
-2. **Query 02**: Bounce rate per traffic source in July 2017.
+## [SQL] Ecommerce User Behavior Analysis
+
+### 1. Introduction: Analyzed e-commerce data to uncover patterns through data cleaning and extraction to address business questions.
+- This project utilizes SQL on [Google BigQuery](https://cloud.google.com/bigquery/docs/introduction) platform to extract important informations.
+- Why? [Google BigQuery Public Datasets](https://cloud.google.com/bigquery/?utm_source=google&utm_medium=cpc&utm_campaign=japac-VN-all-en-dr-BKWS-all-all-trial-EXA-dr-1605216&utm_content=text-ad-none-none-DEV_c-CRE_658171082826-ADGP_Hybrid+%7C+BKWS+-+BRO+%7C+Txt+-Data+Analytics-BigQuery-big+query-main-KWID_43700081106765487-kwd-35927591586&userloc_9208070-network_g&utm_term=KW_big+query&gad_source=1&gclid=Cj0KCQiA4fi7BhC5ARIsAEV1YiZiQMgikH8ALUJUgZa8GtwebyKj7voccMDJVta19CbI64gT-bMQVQAaAnWPEALw_wcB&gclsrc=aw.ds&hl=en) are free, large datasets provided by Google, covering various fields like finance, healthcare, science, society, and technology. Base on a public dataset (ga_sessions_2017), this project focuses on analyzing e-commerce data to understand customer behavior and improve business strategies.
+
+### This project will answer various questions, such as:
+**Query 01**: Calculate total visit, pageview, transaction for Jan, Feb and March 2017 (order by month).
+- SQL code:
+[q1](https://i.imgur.com/hrJ7REW.png)
+3. **Query 02**: Bounce rate per traffic source in July 2017.
 - In this query we will use Bounce_rate = num_bounce/total_visit (order by total_visit DESC)
 - and we need to note that bounce session is the session that user does not raise any click after landing on the website
 3. **Query 03**: Revenue by traffic source by week, by month in June 2017.
