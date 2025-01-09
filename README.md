@@ -8,7 +8,7 @@
 **Query 01**: Calculate total visit, pageview, transaction for Jan, Feb and March 2017 (order by month).
 - SQL code
   
-![q1](https://i.imgur.com/hrJ7REW.png)
+![q1](https://i.imgur.com/dRrR6cT.png)
 
 - Result
 
@@ -19,7 +19,7 @@
 - and we need to note that bounce session is the session that user does not raise any click after landing on the website
 - SQL code
 
-![q2](https://i.imgur.com/1ljKIhx.png)
+![q2](https://i.imgur.com/2Sjh3Hx.png)
 
 - Result
 
@@ -30,11 +30,11 @@
 - Separate month and week data then union all and use the condition "product.productRevenue is not null" to calculate correctly
 - SQL code
 
-![q3](https://i.imgur.com/fxxHdU4.png)
+![q3](https://i.imgur.com/O94nUmb.png)
 
 - Result
 
-![rs](https://i.imgur.com/YGVVpJm.png)
+![rs](https://i.imgur.com/YGVVpJm.pn)
 4. **Query 04**: Average number of pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017.
 - We will calculate Avg pageview = total pageview / number unique user
 - Also notice that purchaser: totals.transactions >=1; productRevenue is not null while non-purchaser: totals.transactions IS NULL;  product.productRevenue is null
