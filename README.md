@@ -79,51 +79,51 @@
 - SQL code
 
 ```sql
-WITH
-product_view AS (
+with
+product_view as(
       SELECT
-            format_date("%Y%m", parse_date("%Y%m%d", date)) AS month,
-            COUNT(product.productSKU) AS num_product_view
-      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
-            UNNEST(hits) AS hits,
-            UNNEST(hits.product) AS product
+            format_date("%Y%m", parse_date("%Y%m%d", date)) as month,
+            count(product.productSKU) as num_product_view
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+      ,UNNEST(hits) AS hits
+      ,UNNEST(hits.product) as product
       WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
-            AND hits.eCommerceAction.action_type = '2'
-      GROUP BY 1
-),
-add_to_cart AS (
+      AND hits.eCommerceAction.action_type = '2'
+      GROUP BY 1),
+
+add_to_cart as(
       SELECT
-            format_date("%Y%m", parse_date("%Y%m%d", date)) AS month,
-            COUNT(product.productSKU) AS num_addtocart
-      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
-            UNNEST(hits) AS hits,
-            UNNEST(hits.product) AS product
+            format_date("%Y%m", parse_date("%Y%m%d", date)) as month,
+            count(product.productSKU) as num_addtocart
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+      ,UNNEST(hits) AS hits
+      ,UNNEST(hits.product) as product
       WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
-            AND hits.eCommerceAction.action_type = '3'
-      GROUP BY 1
-),
-purchase AS (
+      AND hits.eCommerceAction.action_type = '3'
+      GROUP BY 1),
+
+purchase as(
       SELECT
-            format_date("%Y%m", parse_date("%Y%m%d", date)) AS month,
-            COUNT(product.productSKU) AS num_purchase
-      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
-            UNNEST(hits) AS hits,
-            UNNEST(hits.product) AS product
+            format_date("%Y%m", parse_date("%Y%m%d", date)) as month,
+            count(product.productSKU) as num_purchase
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+      ,UNNEST(hits) AS hits
+      ,UNNEST(hits.product) as product
       WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
-            AND hits.eCommerceAction.action_type = '6'
-            AND product.productRevenue IS NOT NULL
-      GROUP BY 1
-)
-SELECT
+      AND hits.eCommerceAction.action_type = '6'
+      and product.productRevenue is not null
+      GROUP BY 1)
+
+select
     pv.*,
     num_addtocart,
     num_purchase,
-    ROUND(num_addtocart * 100 / num_product_view, 2) AS add_to_cart_rate,
-    ROUND(num_purchase * 100 / num_product_view, 2) AS purchase_rate
-FROM product_view pv
-LEFT JOIN add_to_cart a ON pv.month = a.month
-LEFT JOIN purchase p ON pv.month = p.month
-ORDER BY pv.month;
+    round(num_addtocart*100/num_product_view,2) as add_to_cart_rate,
+    round(num_purchase*100/num_product_view,2) as purchase_rate
+from product_view pv
+left join add_to_cart a on pv.month = a.month
+left join purchase p on pv.month = p.month
+order by pv.month
 ```
 
 - Result
