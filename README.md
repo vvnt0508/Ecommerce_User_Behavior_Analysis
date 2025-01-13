@@ -78,7 +78,53 @@
 - hits.eCommerceAction.action_type = '2' is view product page; hits.eCommerceAction.action_type = '3' is add to cart; hits.eCommerceAction.action_type = '6' is purchase
 - SQL code
 
-![q8](
+```sql
+WITH
+product_view AS (
+      SELECT
+            format_date("%Y%m", parse_date("%Y%m%d", date)) AS month,
+            COUNT(product.productSKU) AS num_product_view
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
+            UNNEST(hits) AS hits,
+            UNNEST(hits.product) AS product
+      WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
+            AND hits.eCommerceAction.action_type = '2'
+      GROUP BY 1
+),
+add_to_cart AS (
+      SELECT
+            format_date("%Y%m", parse_date("%Y%m%d", date)) AS month,
+            COUNT(product.productSKU) AS num_addtocart
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
+            UNNEST(hits) AS hits,
+            UNNEST(hits.product) AS product
+      WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
+            AND hits.eCommerceAction.action_type = '3'
+      GROUP BY 1
+),
+purchase AS (
+      SELECT
+            format_date("%Y%m", parse_date("%Y%m%d", date)) AS month,
+            COUNT(product.productSKU) AS num_purchase
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
+            UNNEST(hits) AS hits,
+            UNNEST(hits.product) AS product
+      WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
+            AND hits.eCommerceAction.action_type = '6'
+            AND product.productRevenue IS NOT NULL
+      GROUP BY 1
+)
+SELECT
+    pv.*,
+    num_addtocart,
+    num_purchase,
+    ROUND(num_addtocart * 100 / num_product_view, 2) AS add_to_cart_rate,
+    ROUND(num_purchase * 100 / num_product_view, 2) AS purchase_rate
+FROM product_view pv
+LEFT JOIN add_to_cart a ON pv.month = a.month
+LEFT JOIN purchase p ON pv.month = p.month
+ORDER BY pv.month;
+```
 
 - Result
 
